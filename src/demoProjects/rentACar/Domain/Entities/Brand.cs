@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Brand:Entity
-    {
+    public class Brand : Entity
+    {   
         public string Name { get; set; }
+        public virtual ICollection<Model> Models { get; set; }
 
         public Brand()
         {
+        
         }
 
         public Brand(int id, string name) : this()
@@ -20,5 +22,5 @@ namespace Domain.Entities
             Id = id;
             Name = name;
         }
-    }
+    }   
 }
