@@ -21,8 +21,12 @@ namespace Persistence
                                                      options.UseSqlServer(
                                                          configuration.GetConnectionString("RentACarConnectionString")));
             services.AddScoped<IBrandRepository, BrandRepository>();
-            services.AddTransient<IModelRepository, ModelRepository>();
-
+            services.AddScoped<IModelRepository, ModelRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+            services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
+            services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
+            
             return services;
         }
     }
